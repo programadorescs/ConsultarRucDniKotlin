@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.pcs.consultarrucdnikotlin.ui.ApisPeruFragment"
+        android:label="Apis Peru"
+        tools:layout="@layout/fragment_apis_peru" />
+
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="com.pcs.consultarrucdnikotlin.ui.ConfiguracionFragment"
+        android:label="Configuracion de token"
+        tools:layout="@layout/fragment_configuracion" />
+
+    <fragment
+        android:id="@+id/nav_apiperu_dev"
+        android:name="com.pcs.consultarrucdnikotlin.ui.ApiPeruDevFragment"
+        android:label="ApiPeru DEV"
+        tools:layout="@layout/fragment_api_peru_dev" />
+</navigation>
