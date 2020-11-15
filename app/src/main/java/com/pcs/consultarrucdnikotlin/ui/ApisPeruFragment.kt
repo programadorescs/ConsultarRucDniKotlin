@@ -43,6 +43,11 @@ class ApisPeruFragment : Fragment(), GetHttpApisPeru.ApisPeruListener {
         txtCondicion = view.findViewById(R.id.et_condicion)
 
         fabBuscar.setOnClickListener {
+            if (!Utilidad.existeConexionInternet(it.context)) {
+                Toast.makeText(it.context, "NO existe conexion a Internet", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             val nroDoc = txtNroDoc.text.trim()
             Utilidad.ocultarTeclado(it.context, it)
             Utilidad.limpiarEditText(view)

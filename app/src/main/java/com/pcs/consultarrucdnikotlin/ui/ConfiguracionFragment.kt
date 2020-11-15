@@ -11,14 +11,13 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.pcs.consultarrucdnikotlin.R
+import com.pcs.consultarrucdnikotlin.Utilidades.Utilidad
 
 class ConfiguracionFragment : Fragment() {
 
     private lateinit var txtTokenApisPeru: EditText
     private lateinit var txtTokenApiPeruDev: EditText
     private lateinit var editor: SharedPreferences.Editor
-    private val API_PERU_DEV = "apiperu_dev"
-    private val APIS_PERU = "apisperu"
     private val TOKEN_APIS = "token_apis"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -34,16 +33,16 @@ class ConfiguracionFragment : Fragment() {
         txtTokenApisPeru = view.findViewById(R.id.et_token_apisperu)
 
         fabGrabar.setOnClickListener {
+            if (!Utilidad.existeConexionInternet(it.context)) {
+                Toast.makeText(it.context, "NO existe conexion a Internet", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             editor = activity?.getSharedPreferences(TOKEN_APIS, Context.MODE_PRIVATE)?.edit()!!
             editor.putString("token_dev", txtTokenApiPeruDev.text.toString())
             editor.putString("token_apisperu", txtTokenApisPeru.text.toString())
             editor.apply()
             editor.commit()
-
-            /*editor = activity?.getSharedPreferences(APIS_PERU, Context.MODE_PRIVATE)?.edit()!!
-            editor.putString("token_apisperu", txtTokenApisPeru.text.toString())
-            editor.apply()
-            editor.commit()*/
 
             Toast.makeText(it.context, "Operacion exitosa", Toast.LENGTH_LONG).show()
         }

@@ -2,6 +2,9 @@ package com.pcs.consultarrucdnikotlin.Utilidades
 
 import android.app.Activity
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.NetworkInfo
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -41,6 +44,27 @@ class Utilidad {
                 if (v is EditText) v.setText("")
             }
         }
+
+        fun existeConexionInternet(contexto: Context): Boolean {
+            val cm = contexto.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+            return activeNetwork?.isConnectedOrConnecting == true
+        }
+
+        /*fun existeDisponibilidadRed(contexto: Context): Boolean {
+            val cm = contexto.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
+            if(capabilities != null){
+                if(capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+                    return true
+                else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
+                    return true
+                else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET))
+                    return true
+            }
+
+            return false
+        }*/
     }
 
 }
