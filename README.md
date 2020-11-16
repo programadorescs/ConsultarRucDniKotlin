@@ -11,4 +11,4 @@ Crear una cuenta gratis en https://apisperu.com/ y/o https://apiperu.dev/ para o
 
 ![alt text](https://drive.google.com/file/d/1fifo5gyVUfxkCje65PygovQ3LBEtkH9d/view?usp=sharing)
 
-![alt text](https://drive.google.com/file/d/1V_kEi9cvN6zNthv2kLb3QXmDGc2JHESA/view?usp=sharing)
+(https://drive.google.com/file/d/1V_kEi9cvN6zNthv2kLb3QXmDGc2JHESA/view?usp=sharing)
